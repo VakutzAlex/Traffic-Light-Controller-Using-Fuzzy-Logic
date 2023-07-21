@@ -1,0 +1,57 @@
+[System]
+Name='FuzzyProiect'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=16
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Queue'
+Range=[0 20]
+NumMFs=4
+MF1='VFew':'trimf',[0 0 5]
+MF2='Few':'trimf',[0 5 10]
+MF3='Med':'trimf',[5 10 15]
+MF4='Many':'trapmf',[10 15 20 20]
+
+[Input2]
+Name='Arrival'
+Range=[0 24]
+NumMFs=4
+MF1='AlmostNone':'trimf',[0 0 6]
+MF2='Few':'trimf',[0 6 12]
+MF3='Many':'trimf',[6 12 18]
+MF4='VeryMany':'trapmf',[12 18 24 24]
+
+[Output1]
+Name='GreenExt'
+Range=[0 125]
+NumMFs=4
+MF1='Zero':'constant',[0]
+MF2='SmallExt':'constant',[40]
+MF3='MedExt':'constant',[60]
+MF4='LargeExt':'constant',[120]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+1 4, 4 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+2 4, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 1 (1) : 1
+3 3, 2 (1) : 1
+3 4, 3 (1) : 1
+4 1, 1 (1) : 1
+4 2, 1 (1) : 1
+4 3, 2 (1) : 1
+4 4, 3 (1) : 1
